@@ -1,0 +1,6 @@
+{"molecules":[
+    {"shortname":"A", "longname":"Alyt", "imgsource":"img/sample0.png"},
+    {"shortname":"B", "longname":"Blyt", "imgsource":"img/sample1.png"},
+    {"shortname":"C", "longname":"Cylit", "imgsource":"img/sample2.png"},
+    {"shortname":"D", "longname":"Dylit", "imgsource":"img/sample3.png"}
+]}

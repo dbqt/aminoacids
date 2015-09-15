@@ -1,0 +1,43 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BioChem Quiz</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
+  </head>
+  <body onload="StartGame()">
+    
+    <div class="row">
+      <div class="panel small-10 small-centered columns">
+        <img id="question" class="center" src="img/sample.png">
+      </div>
+
+      <div class="panel small-10 small-centered columns">
+        <ul class="small-block-grid-2">
+          <li><button id="answer0" class="large expand" onclick="Answer(0)">item1</button></li>
+          <li><button id="answer1" class="large expand" onclick="Answer(1)">item1</button></li>
+          <li><button id="answer2" class="large expand" onclick="Answer(2)">item1</button></li>
+          <li><button id="answer3" class="large expand" onclick="Answer(3)">item1</button></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="panel small-10 small-centered columns">
+        <a href="index.html" class="button tiny">Back to Menu</a>
+        <p id="score" class="right"><p>
+      </div>
+    </div>
+
+
+    
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script src="js/gamelogic.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

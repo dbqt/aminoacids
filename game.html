@@ -10,16 +10,24 @@
   <body onload="StartGame()">
     
     <div class="row">
-      <div class="small-10 small-centered columns text-center">
-        <h1>BioChem Quiz</h1>
+      <div class="panel small-10 small-centered columns">
+        <img id="question" class="center" src="img/sample.png">
+      </div>
+
+      <div class="panel small-10 small-centered columns">
+        <ul class="small-block-grid-2">
+          <li><button id="answer0" class="large expand" onclick="Answer(0)">item1</button></li>
+          <li><button id="answer1" class="large expand" onclick="Answer(1)">item1</button></li>
+          <li><button id="answer2" class="large expand" onclick="Answer(2)">item1</button></li>
+          <li><button id="answer3" class="large expand" onclick="Answer(3)">item1</button></li>
+        </ul>
       </div>
     </div>
-    
+
     <div class="row">
       <div class="panel small-10 small-centered columns">
-        <a href="index.html" class="button">Back to Menu</a>
-        <p id="score"><p>
-
+        <a href="index.html" class="button tiny">Back to Menu</a>
+        <p id="score" class="right"><p>
       </div>
     </div>
 

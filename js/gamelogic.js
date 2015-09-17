@@ -76,8 +76,6 @@ function Answer(number)
 {
 	if(number == right_answer)
 	{
-		// Make button green.
-		$("#answer"+number).addClass("success");
 		score++;
 	}
 	else
@@ -85,10 +83,13 @@ function Answer(number)
 		// Make button red.
 		$("#answer"+number).addClass("alert");
 	}
+
+	// Make right answer button green.
+	$("#answer"+right_answer).addClass("success");
 	totalQuestion++;
 	// Load next question and update score.
 	UpdateScore();
 
-	setTimeout( function(){ ChangeQuestion(); }, 1250 );
+	setTimeout( function(){ ChangeQuestion(); }, 2750 );
 	
 }

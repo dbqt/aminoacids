@@ -29,6 +29,7 @@ function LoadAllQuestions()
 
 function ChangeQuestion()
 {
+	document.getElementById("next_button").innerHTML="";
 	answered = false;
 	// Reset Buttons.
 	for (var i = 0; i < 4; i++) {
@@ -148,8 +149,9 @@ function Answer(number)
 		totalQuestion++;
 		// Load next question and update score.
 		UpdateScore();
-
-		setTimeout( function(){ ChangeQuestion(); }, 2750 );
+		
+		document.getElementById("next_button").innerHTML="<button class=\"expand\" onclick=\"ChangeQuestion()\">Next</button>";
+		//setTimeout( function(){ ChangeQuestion(); }, 2750 );
 	}
 	
 }

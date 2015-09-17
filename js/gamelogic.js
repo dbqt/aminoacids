@@ -5,6 +5,7 @@ var totalQuestion = 0;
 var loaded_data;
 
 var right_answer;
+var answered;
 
 function UpdateScore()
 {
@@ -15,6 +16,7 @@ function StartGame()
 {
 	UpdateScore();
 	LoadAllQuestions();
+	answered = false;
 }
 
 function LoadAllQuestions()
@@ -27,6 +29,7 @@ function LoadAllQuestions()
 
 function ChangeQuestion()
 {
+	answered = false;
 	// Reset Buttons.
 	for (var i = 0; i < 4; i++) {
 		$("#answer"+i).removeClass("success alert");
@@ -74,22 +77,26 @@ function ChangeQuestion()
 
 function Answer(number)
 {
-	if(number == right_answer)
+	if(!answered)
 	{
-		score++;
-	}
-	else
-	{
-		// Make button red.
-		$("#answer"+number).addClass("alert");
-	}
+		answered = true;
+		if(number == right_answer)
+		{
+			score++;
+		}
+		else
+		{
+			// Make button red.
+			$("#answer"+number).addClass("alert");
+		}
 
-	// Make right answer button green.
-	$("#answer"+right_answer).addClass("success");
-	totalQuestion++;
-	// Load next question and update score.
-	UpdateScore();
+		// Make right answer button green.
+		$("#answer"+right_answer).addClass("success");
+		totalQuestion++;
+		// Load next question and update score.
+		UpdateScore();
 
-	setTimeout( function(){ ChangeQuestion(); }, 2750 );
+		setTimeout( function(){ ChangeQuestion(); }, 2750 );
+	}
 	
 }

@@ -37,11 +37,30 @@ function ChangeQuestion()
 
 	// Get random number between 0 and lenght of loaded_data.
 	var random = Math.floor(Math.random() * loaded_data.molecules.length);
+	// Get random question type.
+	var question_type = Math.floor(Math.random() * 12);
 	// Get random number between 0 and 3.
 	right_answer = Math.floor(Math.random() * 4);
 
 	// Load image question.
-	document.getElementById("question").src = loaded_data.molecules[random].imgsource;
+	if(question_type == 0 || question_type == 1 || question_type == 2)
+	{
+		document.getElementById("question").innerHTML="<img class=\"question_image\" src=\""
+														+loaded_data.molecules[random].imgsource
+														+"\"></img>";
+	}
+	else if(question_type == 3 || question_type == 4 || question_type == 5)
+	{
+		document.getElementById("question").innerHTML="<h3>"+loaded_data.molecules[random].longname+"</h3>";
+	}
+	else if(question_type == 6 || question_type == 7 || question_type == 8)
+	{
+		document.getElementById("question").innerHTML="<h3>"+loaded_data.molecules[random].shortname+"</h3>";
+	}
+	else if(question_type == 9 || question_type == 10 || question_type == 11)
+	{
+		document.getElementById("question").innerHTML="<h3>"+loaded_data.molecules[random].shortshortname+"</h3>";
+	}
 
 	// Temp variables.
 	var takens = [-2];
@@ -55,7 +74,24 @@ function ChangeQuestion()
 		{
 			// If this (i) button is the right one, put the right answer.
 			if(right_answer == i){
-				document.getElementById("answer"+i).innerHTML = loaded_data.molecules[random].longname;
+				if(question_type == 0 || question_type == 7 || question_type == 10)
+				{
+					document.getElementById("answer"+i).innerHTML = loaded_data.molecules[random].longname;
+				}
+				else if(question_type == 3 || question_type == 6 || question_type == 9)
+				{
+					document.getElementById("answer"+i).innerHTML="<img class=\"question_image\" src=\""
+														+loaded_data.molecules[random].imgsource
+														+"\"></img>"
+				}
+				else if(question_type == 2 || question_type == 4 || question_type == 11)
+				{
+					document.getElementById("answer"+i).innerHTML = loaded_data.molecules[random].shortname;
+				}
+				else if(question_type == 1 || question_type == 5 || question_type == 8)
+				{
+					document.getElementById("answer"+i).innerHTML = loaded_data.molecules[random].shortshortname;
+				}
 				done = true;
 			} 
 			// Else, put an unused random answer.
@@ -65,7 +101,24 @@ function ChangeQuestion()
 				// Check whether answer is usable now (not used) before putting it on the button.
 				if(takens.indexOf(r) == -1)
 				{
-					document.getElementById("answer"+i).innerHTML = loaded_data.molecules[r].longname;
+					if(question_type == 0 || question_type == 7 || question_type == 10)
+					{
+						document.getElementById("answer"+i).innerHTML = loaded_data.molecules[r].longname;
+					}
+					else if(question_type == 3 || question_type == 6 || question_type == 9)
+					{
+						document.getElementById("answer"+i).innerHTML="<img class=\"question_image\" src=\""
+															+loaded_data.molecules[r].imgsource
+															+"\"></img>"
+					}
+					else if(question_type == 2 || question_type == 4 || question_type == 11)
+					{
+						document.getElementById("answer"+i).innerHTML = loaded_data.molecules[r].shortname;
+					}
+					else if(question_type == 1 || question_type == 5 || question_type == 8)
+					{
+						document.getElementById("answer"+i).innerHTML = loaded_data.molecules[r].shortshortname;
+					}
 					takens.push(r);
 					done = true;
 				}
